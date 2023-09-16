@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-
+import icon from './images/icon1.png';
 import music from './images/music.png';
 import education from './images/education.png';
 import social from './images/social.png';
@@ -95,7 +95,7 @@ function Home() {
 
             <div className='mainActivity'>
                 <p className='type' >Type of activity : <span className='color'> { type } </span>  </p>
-                <img id='activityIcon' src={ image }  alt="icon" width="100px" height="100px" />
+                <img id='activityIcon' src={ icon }  alt="icon" width="100px" height="100px" />
                 <p className='type' > { participants === 1  ?  "for " +  participants   + " person" : "for " +  participants  + " people" }</p>
                 
                 <div className='starBox'>
