@@ -17,7 +17,6 @@ function Home() {
     const [activity, setActivity] = useState("");
     const [type, setType] = useState("");
     const [participants, setParticipants] = useState("1");
-    const [image, setImage] = useState("");
     const [like, setLike] = useState(Math.floor(Math.random() * 999));
     const [isClicked, setIsClicked] = useState(false);
     
@@ -45,7 +44,6 @@ function Home() {
         setActivity(data.activity);
         setType(data.type);
         setParticipants(data.participants);
-        setImage(activityIcon);
 
         if (data.type === "music") {
             activityIcon.setAttribute('src' , music)
