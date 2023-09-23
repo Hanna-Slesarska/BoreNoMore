@@ -195,7 +195,7 @@ a:hover {
 @media all and (max-width:500px) {
   .container {
     width: 90%;
-    height: 90vh;
+    height: 94vh;
   }
   .frame {
     top: 5%;
