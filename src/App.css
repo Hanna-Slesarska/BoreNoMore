@@ -53,7 +53,7 @@ margin-top: 30px;
   }
 }
 .par {
-  font-size: 22px;
+  font-size: 20px;
   padding: 10px 20px;
   color: #f8af42;
   text-align: center;
@@ -68,7 +68,7 @@ margin-top: 30px;
 }
 .activity {
   color: #f8af42;
-  font-size: 30px;
+  font-size: 22px;
   text-align: center;
 }
 .mainActivity {
@@ -153,7 +153,6 @@ margin-top: 30px;
   align-items: center;
   justify-content: center;
   font-size: 13px;
-  margin-top: 10px;
 }
 .footer a {
   text-decoration: none;
@@ -173,6 +172,9 @@ a:hover {
   .activity {
     font-size: 26px;
   }
+  .par {
+    font-size: 17px;
+  }
 }
 @media all and (max-width:800px) {
   .container {
@@ -181,9 +183,7 @@ a:hover {
   .heading-top h1 {
     font-size: 45px;
   }
-  .par {
-    font-size: 18px;
-  }
+  
   .btn {
     font-size: 15px;
   }
