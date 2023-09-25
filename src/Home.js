@@ -1,15 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import music from './images/music.png';
-import education from './images/education.png';
-import social from './images/social.png';
-import recreational from './images/recreation.png';
-import busywork from './images/busywork.png';
-import relaxation from './images/relax.png';
-import cooking from './images/cooking.png';
-import charity from './images/charity.png';
-import diy from './images/diy.png';
+import Icons from './Icons';
 import icon from './images/icon.png';
+
 
 
 function Home() {
@@ -22,58 +15,37 @@ function Home() {
     
     const handleClick = () => {
         if (isClicked) {
-          setLike(like - 1);
+            setLike(like - 1);
         } else {
-          setLike(like + 1);
+            setLike(like + 1);
         }
         setIsClicked(!isClicked);
-      };
-
-    useEffect( () => {
-        getActivity();
-
-    }, [])
-
+    };
 
     const getActivity = async () => {
         const responce = await fetch('https://www.boredapi.com/api/activity/');
         const data = await responce.json();
         const activityIcon = document.querySelector("#activityIcon");
         //console.log(data);
-       
+
+        const showIcon = type => {
+            Icons.forEach(icon => {
+                if (icon.title === type) {
+                    activityIcon.setAttribute('src', icon.src)
+                }
+            })
+        }
+
         setActivity(data.activity);
         setType(data.type);
         setParticipants(data.participants);
-
-        if (data.type === "music") {
-            activityIcon.setAttribute('src' , music)
-        }
-        else if (data.type === "social") {
-            activityIcon.setAttribute('src' , social)
-        }
-        else if (data.type === "recreational") {
-            activityIcon.setAttribute('src' , recreational)
-        }
-        else if (data.type === "busywork") {
-            activityIcon.setAttribute('src' , busywork)
-        }
-        else if (data.type === "relaxation") {
-            activityIcon.setAttribute('src' , relaxation)
-        }
-        else if (data.type === "cooking") {
-            activityIcon.setAttribute('src' , cooking)
-        }
-        else if (data.type === "education") {
-            activityIcon.setAttribute('src' , education)
-        }
-        else if (data.type === "charity") {
-            activityIcon.setAttribute('src' , charity)
-        }
-        else if (data.type === "diy") {
-            activityIcon.setAttribute('src' , diy)
-        }
+        showIcon(data.type);
     }
+    
+    useEffect( () => {
+        getActivity();
 
+    }, [])
 
 
     return (
@@ -94,7 +66,7 @@ function Home() {
             <div className='mainActivity'>
                 <p className='type' >Type of activity : <span className='color'> { type } </span>  </p>
                 
-                <img id='activityIcon' src={ icon }  alt="activity" width="100px" height="100px" />
+                <img id='activityIcon' src={ icon } alt="activity" width="100px" height="100px" />
                 <p className='type' > { participants === 1  ?  "for " +  participants   + " person" : "for " +  participants  + " people" }</p>
                 
                 <div className='starBox'>
